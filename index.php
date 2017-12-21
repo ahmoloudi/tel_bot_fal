@@ -122,12 +122,15 @@ function processMessage($message) {
     $text = $message['text'];
 
     if (strpos($text, "/start") === 0) {
-      apiRequestJson("sendMessage", array('chat_id' => $chat_id, "text" => 'Hello', 'reply_markup' => array(
-        'keyboard' => array(array('Hello', 'Hi')),
+      apiRequestJson("sendMessage", array('chat_id' => $chat_id, "text" => 'شروع رو بزن و فالت رو تحویل بگیر', 'reply_markup' => array(
+        'keyboard' => array(array('شروع')),
         'one_time_keyboard' => true,
         'resize_keyboard' => true)));
-    } else if ($text === "Hello" || $text === "Hi") {
-      apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => 'Nice to meet you'));
+    } else if ($text === "شروع") {
+      apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => 'کیو از همه بیشتر دوست داری؟', 'reply_markup' => array(
+        'keyboard' => array(array('نمیخوام بگم')),
+        'one_time_keyboard' => true,
+        'resize_keyboard' => true)));
     } else if (strpos($text, "/stop") === 0) {
       // stop now
     } else {
